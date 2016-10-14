@@ -228,9 +228,10 @@
         NSLog(@"Msg: %@", jsonStr);
 
         NSString * jsCallBack = [NSString stringWithFormat:@"%@(%@);", self.callback, jsonStr];
-        //[self.webView stringByEvaluatingJavaScriptFromString:jsCallBack]; //commented by Mayank when cordova-ios updated to >4 from 3.8.0
+        [self.webView stringByEvaluatingJavaScriptFromString:jsCallBack]; //commented by Mayank when cordova-ios updated to >4 from 3.8.0
 
         //added by Mayank when cordova-ios updated to >4 from 3.8.0
+	/*
         if ([self.webView respondsToSelector:@selector(stringByEvaluatingJavaScriptFromString:)]) {
             // Cordova-iOS pre-4
             [self.webView performSelectorOnMainThread:@selector(stringByEvaluatingJavaScriptFromString:) withObject:jsCallBack waitUntilDone:NO];
@@ -238,7 +239,7 @@
             // Cordova-iOS 4+
             [self.webView performSelectorOnMainThread:@selector(evaluateJavaScript:completionHandler:) withObject:jsCallBack waitUntilDone:NO];
         }
-
+	*/
         self.notificationMessage = nil;
     }
 }
